@@ -45,6 +45,8 @@
     "deploy:dev-whitelist:contracts": "yarn workspace eth hardhat:dev deploy --whitelist true",
     "deploy:acadia2:contracts": "yarn workspace eth hardhat:acadia2 deploy --whitelist false",
     "deploy:acadia2-whitelist:contracts": "yarn workspace eth hardhat:acadia2 deploy --whitelist true",
+    "deploy:prod:contracts": "yarn workspace eth hardhat:prod --whitelist false",
+    "deploy:prod-whitelist:contracts": "yarn workspace eth hardhat:prod --whitelist true",
 
     "add:dev:planets": "yarn workspace eth hardhat:dev game:createPlanets",
     "add:acadia2:planets": "yarn workspace eth hardhat:acadia2 game:createPlanets",
