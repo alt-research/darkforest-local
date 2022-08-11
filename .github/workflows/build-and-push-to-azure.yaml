@@ -19,6 +19,8 @@ jobs:
         with:
           node-version: 16
       - run: npm install -g yarn
+      - name: Install dependencies
+        run: yarn install
       - name: Deploy contracts and build darkforest
         run: ./scripts/ci_build_deploy.sh
         env:
