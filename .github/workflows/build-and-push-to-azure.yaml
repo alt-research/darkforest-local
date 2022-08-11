@@ -26,7 +26,7 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az storage blob upload-batch --overwrite --account-name darkforestprod --auth-mode key -d '$web' -s "client/dist"
+            az storage blob upload-batch --overwrite --account-name prddarkforestaltresearch --auth-mode key -d '$web' -s "client/dist"
       
       - name: logout
         run: |
