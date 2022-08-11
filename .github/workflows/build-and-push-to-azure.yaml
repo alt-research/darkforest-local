@@ -24,7 +24,8 @@ jobs:
         env:
           NODE_ENV: ${{ secrets.NODE_ENV }}
           DEFAULT_RPC: ${{ secrets.DEFAULT_RPC }}
-          DEPLOYER_MNEMONIC: ${{ secrets.DEPLOYER_MNEMONIC }}
+          DEPLOYER_MNEMONIC: "${{ secrets.DEPLOYER_MNEMONIC }}"
+          HARDHAT_NETWORK: ${{ secrets.HARDHAT_NETWORK }}
 
       - name: Push to storage account
         uses: azure/CLI@v1
