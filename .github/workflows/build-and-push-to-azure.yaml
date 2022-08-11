@@ -19,13 +19,15 @@ jobs:
         with:
           node-version: 16
       - run: npm install -g yarn
-      - run: npm install -g hardhat@^2.6.8
+      - name: Install dependencies
+        run: yarn install
       - name: Deploy contracts and build darkforest
         run: ./scripts/ci_build_deploy.sh
         env:
           NODE_ENV: ${{ secrets.NODE_ENV }}
           DEFAULT_RPC: ${{ secrets.DEFAULT_RPC }}
-          DEPLOYER_MNEMONIC: ${{ secrets.DEPLOYER_MNEMONIC }}
+          DEPLOYER_MNEMONIC: "${{ secrets.DEPLOYER_MNEMONIC }}"
+          HARDHAT_NETWORK: ${{ secrets.HARDHAT_NETWORK }}
 
       - name: Push to storage account
         uses: azure/CLI@v1

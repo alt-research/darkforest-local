@@ -2,12 +2,9 @@
 
 function whitelist_address() {
 	while read address; do
-		yarn workspace eth hardhat:acadia2 whitelist:register --address "${address}"
+		yarn workspace eth hardhat:prod whitelist:register --address "${address}"
 	done <"scripts/addresses.txt"
 }
-
-echo "$NODE_ENV"
-echo "$DEFAULT_RPC"
 
 darkforest_local_hash=$(git rev-parse HEAD)
 darkforest_circuits_hash=$(git rev-parse HEAD:circuits)
@@ -21,10 +18,8 @@ echo "  darkforest-client hash: $darkforest_client_hash"
 echo "     darkforest-eth hash: $darkforest_eth_hash"
 echo "darkforest-packages hash: $darkforest_packages_hash"
 
-yarn
-
-yarn deploy:acadia2:contracts
-#yarn deploy:acadia2-whitelist:contracts && whitelist_address
+yarn deploy:prod:contracts
+#yarn deploy:prod-whitelist:contracts && whitelist_address
 
 yarn workspace client build
 
