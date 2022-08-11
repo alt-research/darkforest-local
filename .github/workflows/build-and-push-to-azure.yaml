@@ -23,7 +23,7 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            ./scripts/ci_build_deploy.sh && az storage blob upload-batch --overwrite --account-name darkforestprod --auth-mode key -d '$web' -s "client/dist"
+            npm install --global yarn && ./scripts/ci_build_deploy.sh && az storage blob upload-batch --overwrite --account-name darkforestprod --auth-mode key -d '$web' -s "client/dist"
       
       - name: logout
         run: |
