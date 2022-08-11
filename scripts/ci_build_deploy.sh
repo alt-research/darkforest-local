@@ -6,6 +6,9 @@ function whitelist_address() {
 	done <"scripts/addresses.txt"
 }
 
+echo "$NODE_ENV"
+echo "$DEFAULT_RPC"
+
 darkforest_local_hash=$(git rev-parse HEAD)
 darkforest_circuits_hash=$(git rev-parse HEAD:circuits)
 darkforest_client_hash=$(git rev-parse HEAD:client)
