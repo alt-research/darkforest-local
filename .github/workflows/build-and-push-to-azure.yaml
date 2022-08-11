@@ -18,12 +18,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - run: npm install -g yarn
+      - name: Deploy contracts and build darkforest
+        run: ./scripts/ci_build_deploy.sh
 
-      - name: Build and push to storage account
+      - name: Push to storage account
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            npm install --global yarn && ./scripts/ci_build_deploy.sh && az storage blob upload-batch --overwrite --account-name darkforestprod --auth-mode key -d '$web' -s "client/dist"
+            az storage blob upload-batch --overwrite --account-name darkforestprod --auth-mode key -d '$web' -s "client/dist"
       
       - name: logout
         run: |
