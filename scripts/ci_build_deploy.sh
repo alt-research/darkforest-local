@@ -20,8 +20,8 @@ echo "darkforest-packages hash: $darkforest_packages_hash"
 
 yarn
 
-#yarn deploy:acadia2:contracts
-yarn deploy:acadia2-whitelist:contracts && whitelist_address
+yarn deploy:acadia2:contracts
+#yarn deploy:acadia2-whitelist:contracts && whitelist_address
 
 yarn workspace client build
 
