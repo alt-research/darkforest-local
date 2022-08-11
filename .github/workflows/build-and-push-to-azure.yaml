@@ -19,10 +19,9 @@ jobs:
         with:
           node-version: 16
       - run: npm install -g yarn
-      - name: Deploy dark forest contracts
-        run: yarn deploy:acadia2:contracts
-      - name: Build dark forest
-        run: yarn workspace client build
+      - run: npm install -g hardhat:^2.6.8
+      - name: Deploy contracts and build darkforest
+        run: ./scripts/ci_build_deploy.sh
 
       - name: Push to storage account
         uses: azure/CLI@v1
