@@ -22,6 +22,10 @@ jobs:
       - run: npm install -g hardhat@^2.6.8
       - name: Deploy contracts and build darkforest
         run: ./scripts/ci_build_deploy.sh
+        env:
+          NODE_ENV: ${{ secrets.NODE_ENV }}
+          DEFAULT_RPC: ${{ secrets.DEFAULT_RPC }}
+          DEPLOYER_MNEMONIC: ${{ secrets.DEPLOYER_MNEMONIC }}
 
       - name: Push to storage account
         uses: azure/CLI@v1
