@@ -163,7 +163,7 @@ The default implementation of Dark Forest ships with a [whitelist
 contract](https://github.com/darkforest-eth/eth/blob/master/contracts/Whitelist.sol). When we
 deployed the contracts in Step 1, amongst them was this whitelist contract. A 'static' deployment of
 Dark Forest (no web server) isn't capable of submitting a whitelisting transaction on behalf of the
-user (which lets a given burner address into the game and drips it a fraction of an xDAI).
+user (which lets a given burner address into the game and drips it a fraction of an ALT).
 
 This means that if you want to let players into your game, you must first collect their
 addresses.
