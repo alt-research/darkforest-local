@@ -3,7 +3,7 @@ name: Docker build and push to azure storage
 on:
   push:
     branches:
-      - 'master'
+      - 'release'
 
 jobs:
   production-static:
