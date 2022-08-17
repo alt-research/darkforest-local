@@ -10,6 +10,3 @@
 [submodule "packages"]
 	path = packages
 	url = https://github.com/alt-research/darkforest-packages
-[submodule "api"]
-	path = api
-	url = https://github.com/alt-research/darkforest-api.git
