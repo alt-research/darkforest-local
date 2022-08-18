@@ -45,7 +45,7 @@ jobs:
         id: staticpages
         with:
           image: ${{ env.DOCKER_REPO }}:${{ github.sha }}
-          path: client/dist/.
+          path: /app/client/dist/.
 
       - name: "Push static files to azure"
         uses: azure/CLI@v1
@@ -58,7 +58,7 @@ jobs:
         id: contractfiles
         with:
           image: ${{ env.DOCKER_REPO }}:${{ github.sha }}
-          path: packages/contracts/.
+          path: /app/packages/contracts/.
 
       - name: "Push contract files to azure"
         uses: azure/CLI@v1
