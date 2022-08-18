@@ -52,6 +52,7 @@
     "add:acadia2:planets": "yarn workspace eth hardhat:acadia2 game:createPlanets",
 
     "start:client": "yarn workspace client start",
+    "start:api": "yarn workspace eth start:api",
 
     "deploy:client": "netlify build && netlify deploy",
     "deploy:client:prod": "netlify build && netlify deploy --prod",
