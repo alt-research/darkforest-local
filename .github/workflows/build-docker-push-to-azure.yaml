@@ -3,7 +3,7 @@ name: Docker build and push to azure
 on:
   push:
     branch:
-      - "master"
+      - "release"
 
 env:
   REGISTRY_NAME: altregistry
