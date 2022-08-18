@@ -1,11 +1,15 @@
 FROM node:16
 
-
 WORKDIR app
 COPY . ./
 
-RUN npm install -g yarn
 RUN yarn install
+
+ARG NODE_ENV
+ARG DEFAULT_RPC
+ARG DEPLOYER_MNEMONIC
+ARG HARDHAT_NETWORK
+ARG AL_SERVER_HOST
 RUN ./scripts/ci_build_deploy.sh
 
 EXPOSE 3011

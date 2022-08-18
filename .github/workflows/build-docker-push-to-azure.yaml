@@ -1,0 +1,68 @@
+name: Docker build and push to azure
+
+on:
+  push:
+    branch:
+      - "master"
+
+env:
+  REGISTRY_NAME: altregistry
+  DOCKER_REPO: altregistry.azurecr.io/darkforest-backend
+
+jobs:
+  production:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS_PRD }}
+
+      - name: "Login to the container registry"
+        uses: azure/docker-login@v1
+        with:
+          login-server: altregistry.azurecr.io
+          username: ${{ secrets.ALTREGISTRY_USERNAME }}
+          password: ${{ secrets.ALTREGISTRY_PASSWORD }}
+
+      - name: "Build and push the app image"
+        run: |
+          docker build -t $DOCKER_REPO:${{ github.sha }} .
+          docker push $DOCKER_REPO:${{ github.sha }}
+
+      - name: "Extract static files"
+        uses: shrink/actions-docker-extract@v1
+        id: staticpages
+        with:
+          image: ${{ $DOCKER_REPO }}:${{ github.sha }}
+          path: client/dist/.
+
+      - name: "Push static files to azure"
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az storage blob upload-batch --overwrite --account-name prddarkforestaltresearch --auth-mode key -d '$web' -s ${{ steps.staticpages.outputs.destination }}
+
+      - name: "Extract contract files"
+        uses: shrink/actions-docker-extract@v1
+        id: contractfiles
+        with:
+          image: ${{ $DOCKER_REPO }}:${{ github.sha }}
+          path: packages/contracts/.
+
+      - name: "Push contract files to azure"
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az storage blob upload-batch --overwrite --account-name prddarkforestaltresearch --auth-mode key -d 'contractinfo' -s ${{ steps.contractfiles.outputs.destination }}
+
+      - name: Purge CDN
+        run: az cdn endpoint purge -n ${{ secrets.AZURE_CDN_ENDPOINT }} --profile-name ${{ secrets.AZURE_CDN_PROFILE_NAME }} --content-paths "/*" --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} --no-wait
+
+      - name: logout
+        run: |
+          az logout
+        if: always()
