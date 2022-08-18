@@ -53,18 +53,18 @@ jobs:
           inlineScript: |
             az storage blob upload-batch --overwrite --account-name prddarkforestaltresearch --auth-mode key -d '$web' -s ${{ steps.staticpages.outputs.destination }}
 
-      - name: "Extract contract files"
-        uses: shrink/actions-docker-extract@v1
-        id: contractfiles
-        with:
-          image: ${{ env.DOCKER_REPO }}:${{ github.sha }}
-          path: /app/packages/contracts/.
+#      - name: "Extract contract files"
+#        uses: shrink/actions-docker-extract@v1
+#        id: contractfiles
+#        with:
+#          image: ${{ env.DOCKER_REPO }}:${{ github.sha }}
+#          path: /app/packages/contracts/.
 
-      - name: "Push contract files to azure"
-        uses: azure/CLI@v1
-        with:
-          inlineScript: |
-            az storage blob upload-batch --overwrite --account-name prddarkforestaltresearch --auth-mode key -d 'contractinfo' -s ${{ steps.contractfiles.outputs.destination }}
+#      - name: "Push contract files to azure"
+#        uses: azure/CLI@v1
+#        with:
+#          inlineScript: |
+#            az storage blob upload-batch --overwrite --account-name prddarkforestaltresearch --auth-mode key -d 'contractinfo' -s ${{ steps.contractfiles.outputs.destination }}
 
       - name: Purge CDN
         run: az cdn endpoint purge -n ${{ secrets.AZURE_CDN_ENDPOINT }} --profile-name ${{ secrets.AZURE_CDN_PROFILE_NAME }} --content-paths "/*" --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} --no-wait
