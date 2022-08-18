@@ -33,11 +33,11 @@ jobs:
         with:
           push: true
           tags: $DOCKER_REPO:${{ github.sha }}
-          build-args NODE_ENV=${{ secrets.NODE_ENV }}
-          build-args DEFAULT_RPC=${{ secrets.DEFAULT_RPC }}
-          build-args DEPLOYER_MNEMONIC=${{ secrets.DEPLOYER_MNEMONIC }}
-          build-args HARDHAT_NETWORK=${{ HARDHAT_NETWORK }}
-          build-args AL_SERVER_PORT=${{ AL_SERVER_PORT }}
+          build-args: NODE_ENV=${{ secrets.NODE_ENV }}
+          build-args: DEFAULT_RPC=${{ secrets.DEFAULT_RPC }}
+          build-args: DEPLOYER_MNEMONIC=${{ secrets.DEPLOYER_MNEMONIC }}
+          build-args: HARDHAT_NETWORK=${{ HARDHAT_NETWORK }}
+          build-args: AL_SERVER_PORT=${{ AL_SERVER_PORT }}
 
       - name: "Build and push the app image"
         run: |
