@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY_NAME: altregistry
-  DOCKER_REPO: altregistry.azurecr.io/darkforest-backend
+  DOCKER_REPO: "altregistry.azurecr.io/darkforest-backend"
 
 jobs:
   production:
