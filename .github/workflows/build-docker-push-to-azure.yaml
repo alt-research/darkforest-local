@@ -49,7 +49,7 @@ jobs:
         uses: shrink/actions-docker-extract@v1
         id: staticpages
         with:
-          image: ${{ $DOCKER_REPO }}:${{ github.sha }}
+          image: $DOCKER_REPO:${{ github.sha }}
           path: client/dist/.
 
       - name: "Push static files to azure"
