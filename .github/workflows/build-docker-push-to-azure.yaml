@@ -40,11 +40,6 @@ jobs:
             HARDHAT_NETWORK=${{ secrets.HARDHAT_NETWORK }}
             AL_SERVER_PORT=${{ secrets.AL_SERVER_PORT }}
 
-      - name: "Build and push the app image"
-        run: |
-          docker build -t $DOCKER_REPO:${{ github.sha }} .
-          docker push $DOCKER_REPO:${{ github.sha }}
-
       - name: "Extract static files"
         uses: shrink/actions-docker-extract@v1
         id: staticpages
@@ -62,7 +57,7 @@ jobs:
         uses: shrink/actions-docker-extract@v1
         id: contractfiles
         with:
-          image: ${{ $DOCKER_REPO }}:${{ github.sha }}
+          image: $DOCKER_REPO:${{ github.sha }}
           path: packages/contracts/.
 
       - name: "Push contract files to azure"
