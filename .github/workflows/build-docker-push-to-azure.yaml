@@ -37,8 +37,8 @@ jobs:
             NODE_ENV=${{ secrets.NODE_ENV }}
             DEFAULT_RPC=${{ secrets.DEFAULT_RPC }}
             DEPLOYER_MNEMONIC=${{ secrets.DEPLOYER_MNEMONIC }}
-            HARDHAT_NETWORK=${{ HARDHAT_NETWORK }}
-            AL_SERVER_PORT=${{ AL_SERVER_PORT }}
+            HARDHAT_NETWORK=${{ secrets.HARDHAT_NETWORK }}
+            AL_SERVER_PORT=${{ secrest.AL_SERVER_PORT }}
 
       - name: "Build and push the app image"
         run: |
