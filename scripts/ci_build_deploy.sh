@@ -18,8 +18,8 @@ echo "  darkforest-client hash: $darkforest_client_hash"
 echo "     darkforest-eth hash: $darkforest_eth_hash"
 echo "darkforest-packages hash: $darkforest_packages_hash"
 
-#yarn deploy:prod:contracts
-yarn deploy:prod-whitelist:contracts && whitelist_address
+yarn deploy:prod:contracts
+#yarn deploy:prod-whitelist:contracts && whitelist_address
 
 yarn workspace client build
 
