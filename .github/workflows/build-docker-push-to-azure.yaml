@@ -2,7 +2,7 @@ name: Docker build and push to azure
 
 on:
   push:
-    branch:
+    branches:
       - "release"
 
 env:
