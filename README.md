@@ -2,6 +2,10 @@
 
 The Dark Forest client deploy process is set up for players to easily fork the client and connect to the mainnet game, but that design decision currently makes it difficult to run a playable version of the game locally. This repository provides a setup for running a local game with just a few steps.
 
+## AltLayer Deployment Guide
+
+[AltLayer Deployment Guide](./altlayer_guide.md)
+
 ## Builder's Guide
 
 For a comprehensive tutorial on using this repository to make custom local games and deploy them, check out the [Builder's Guide](builders_guide.md).
@@ -20,6 +24,7 @@ Yarn places all of the packages for each submodule in the top level `node_module
 * Install [Yarn](https://classic.yarnpkg.com/en/docs/install)
 
 ### Quickstart for running a local game
+
 1. Fork [darkforest-local](https://github.com/projectsophon/darkforest-local) to your GitHub account
 2. `git clone --recurse-submodules https://github.com/<your_name>/darkforest-local.git`
 3. If you didn't clone with `--recurse-submodules` or already have a cloned version: `git submodule update --init --recursive --remote --merge`
@@ -27,6 +32,7 @@ Yarn places all of the packages for each submodule in the top level `node_module
 5. `yarn start`
 
 ### If you plan to make changes to `darkforest-local`
+
 1. Fork [darkforest-local](https://github.com/projectsophon/darkforest-local) to your GitHub account
 2. Fork [darkforest-eth/eth](https://github.com/darkforest-eth/eth) to your GitHub account
 3. Fork [darkforest-eth/client](https://github.com/darkforest-eth/client) to your GitHub account
@@ -66,7 +72,6 @@ Yarn places all of the packages for each submodule in the top level `node_module
     1. `0x044C7963E9A89D4F8B64AB23E02E97B2E00DD57FCB60F316AC69B77135003AEF`
     2. `0x523170AAE57904F24FFE1F61B7E4FF9E9A0CE7557987C2FC034EACB1C267B4AE`
     3. `0x67195c963ff445314e667112ab22f4a7404bad7f9746564eb409b9bb8c6aed32`
-
 
 ## Static deployment of Dark Forest (no webserver)
 
@@ -206,3 +211,4 @@ If theres been new Dark Forest updates released and we haven't yet updated this 
 - Replace the root `yarn.lock` with the `yarn.lock` from `eth/` or `client/`
 - Run `yarn`.
 - Finally add all changes, commit, and PR.
+
