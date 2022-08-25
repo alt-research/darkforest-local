@@ -10,6 +10,8 @@ Before running a community round on AltLayer, prepare and commit the following f
 
 - Update [`packages/constants/src/index.ts`](https://github.com/alt-research/darkforest-packages/blob/master/constants/src/index.ts) the `BLOCK_EXPLORER_URL` to point to our own block explorer
 
+- Update the game landing page information [`client/src/Frontend/Pages/LandingPage.tsx`](https://github.com/alt-research/darkforest-client/blob/master/src/Frontend/Pages/LandingPage.tsx)
+
 At deployment, check the CI generate the following:
 
 - `eth/.env.<network>` is configured based on template [`eth/.env.example`](https://github.com/alt-research/darkforest-eth/blob/master/.env.example). `network` is the hardhat network name.
