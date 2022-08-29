@@ -8,7 +8,9 @@ Before running a community round on AltLayer, prepare and commit the following f
 
 - Update [`client/embedded_plugins/Leader-Board.js`](https://github.com/alt-research/darkforest-client/blob/master/embedded_plugins/Leader-Board.js) that `AL_SERVER_URL` (around L#17) has a valid value for the deployed DF server endpoint.
 
-- Update [`packages/constants/src/index.ts`](https://github.com/alt-research/darkforest-packages/blob/master/constants/src/index.ts) the `BLOCK_EXPLORER_URL` to point to our own block explorer
+- Update [`packages/constants/src/index.ts`](https://github.com/alt-research/darkforest-packages/blob/master/constants/src/index.ts) the `BLOCK_EXPLORER_URL` to point to our own block explorer.
+
+- Update [`client/src/Frontend/Panes/OnboardingPane.tsx`](https://github.com/alt-research/darkforest-client/blob/master/src/Frontend/Panes/OnboardingPane.tsx) the `explorerAddressLink` to point to our own block explorer at around L#52.
 
 - Update the game landing page information [`client/src/Frontend/Pages/LandingPage.tsx`](https://github.com/alt-research/darkforest-client/blob/master/src/Frontend/Pages/LandingPage.tsx)
 
