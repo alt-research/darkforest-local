@@ -1,9 +1,24 @@
 #!/bin/bash
 
+#function whitelist_address() {
+#	while read address; do
+#		yarn workspace eth hardhat:prod whitelist:register --address "${address}"
+#	done <"scripts/addresses.txt"
+#}
+
 function whitelist_address() {
-	while read address; do
-		yarn workspace eth hardhat:prod whitelist:register --address "${address}"
-	done <"scripts/addresses.txt"
+        i=0
+        ADDRESS=""
+        while read address; do
+                i=$((i+1))
+                ADDRESS+=" ${address}"
+                if [ $i == 50 ]; then
+                        echo "$ADDRESS"
+			yarn workspace eth hardhat:prod whitelist:register --address "${address}"
+                        ADDRESS=""
+                        i=0
+                fi
+        done <"addresses.txt"
 }
 
 darkforest_local_hash=$(git rev-parse HEAD)
