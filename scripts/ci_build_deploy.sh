@@ -12,13 +12,13 @@ function whitelist_address() {
         while read address; do
                 i=$((i+1))
 		if [ $i == 1 ]; then
-			ADDRESS="${address}"
+			ADDRESS="--address ${address}"
 		else
-                	ADDRESS+=" ${address}"
+                	ADDRESS+=" --address ${address}"
 		fi
                 if [ $i == 50 ]; then
                         echo "$ADDRESS"
-			yarn workspace eth hardhat:prod whitelist:register --address "$ADDRESS"
+			yarn workspace eth hardhat:prod whitelist:register "$ADDRESS"
                         ADDRESS=""
                         i=0
                 fi
