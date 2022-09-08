@@ -39,6 +39,8 @@ jobs:
             DEPLOYER_MNEMONIC=${{ secrets.DEPLOYER_MNEMONIC }}
             HARDHAT_NETWORK=${{ secrets.HARDHAT_NETWORK }}
             AL_SERVER_PORT=${{ secrets.AL_SERVER_PORT }}
+            ROUND_START_TIMESTAMP=${{ secrets.ROUND_START_TIMESTAMP }}
+            ROUND_END_TIMESTAMP=${{ secrets.ROUND_END_TIMESTAMP }}
 
       - name: "Extract static files"
         uses: shrink/actions-docker-extract@v1
