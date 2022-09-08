@@ -18,6 +18,20 @@ echo "  darkforest-client hash: $darkforest_client_hash"
 echo "     darkforest-eth hash: $darkforest_eth_hash"
 echo "darkforest-packages hash: $darkforest_packages_hash"
 
+
+echo "DEPLOYER_MNEMONIC=$DEPLOYER_MNEMONIC" > eth/.env
+echo "AL_SERVER_PORT=$AL_SERVER_PORT" >> eth/.env
+echo "ROUND_START_TIMESTAMP=$ROUND_START_TIMESTAMP" >> eth/.env
+echo "ROUND_END_TIMESTAMP=$ROUND_END_TIMESTAMP" >> eth/.env
+
+echo "NODE_ENV=$NODE_ENV" > client/.env
+echo "DEFAULT_RPC=$DEFAULT_RPC" >> client/.env
+echo "AL_SERVER_URL=$AL_SERVER_URL" >> client/.env
+echo "EXPLORER_ADDR_PREFIX=$EXPLORER_ADDR_PREFIX" >> client/.env
+echo "ROUND_START_TIMESTAMP=$ROUND_START_TIMESTAMP" >> client/.env
+echo "ROUND_END_TIMESTAMP=$ROUND_END_TIMESTAMP" >> client/.env
+
+
 yarn deploy:prod:contracts
 #yarn deploy:prod-whitelist:contracts && whitelist_address
 
