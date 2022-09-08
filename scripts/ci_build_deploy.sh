@@ -17,11 +17,11 @@ function whitelist_address() {
                 	ADDRESS+=",${address}"
 		fi
                 if [ $i == 50 ]; then
-                        echo "$ADDRESS"
 			yarn workspace eth hardhat:prod whitelist:register --address "$ADDRESS"
                         ADDRESS=""
                         i=0
-			sleep 75
+			sleep 120
+			echo "================================================================================"
                 fi
         done <"scripts/addresses.txt"
 }
