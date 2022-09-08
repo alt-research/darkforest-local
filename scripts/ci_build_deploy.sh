@@ -21,6 +21,7 @@ function whitelist_address() {
 			yarn workspace eth hardhat:prod whitelist:register --address "$ADDRESS"
                         ADDRESS=""
                         i=0
+			sleep 75
                 fi
         done <"scripts/addresses.txt"
 }
