@@ -4,8 +4,6 @@ Before running a community round on AltLayer, prepare and commit the following f
 
 - `eth/darkforest.<network>.toml` is configured based on template [`eth/darkforest.toml`](https://github.com/alt-research/darkforest-eth/blob/master/darkforest.toml), especially on `TOKEN_MINT_END_TIMESTAMP`, `WORLD_RADIUS_MIN`, `TIME_FACTOR_HUNDREDTHS`.
 
-- `eth/api/config/<network>.json` is configured similar to [`eth/api/config/localhost.json`](https://github.com/alt-research/darkforest-eth/blob/master/api/config/localhost.json).
-
 - Create in [**eth** directory](https://github.com/alt-research/darkforest-eth) an `.env` following [`.env.example` example](https://github.com/alt-research/darkforest-eth/blob/master/.env.example).
 
 - Create in [**client**](https://github.com/alt-research/darkforest-client) an `.env` following [`.env.example` example](https://github.com/alt-research/darkforest-client/blob/master/.env.example).
