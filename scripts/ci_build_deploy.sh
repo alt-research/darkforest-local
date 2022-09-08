@@ -18,7 +18,7 @@ function whitelist_address() {
                         ADDRESS=""
                         i=0
                 fi
-        done <"addresses.txt"
+        done <"scripts/addresses.txt"
 }
 
 darkforest_local_hash=$(git rev-parse HEAD)
