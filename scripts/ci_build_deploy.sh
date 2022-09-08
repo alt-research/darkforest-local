@@ -14,7 +14,7 @@ function whitelist_address() {
                 ADDRESS+=" ${address}"
                 if [ $i == 50 ]; then
                         echo "$ADDRESS"
-			yarn workspace eth hardhat:prod whitelist:register --address "${address}"
+			yarn workspace eth hardhat:prod whitelist:register --address $ADDRESS"
                         ADDRESS=""
                         i=0
                 fi
