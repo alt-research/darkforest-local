@@ -53,7 +53,8 @@ echo "ROUND_END_TIMESTAMP=$ROUND_END_TIMESTAMP" >> client/.env
 
 
 #yarn deploy:prod:contracts
-yarn deploy:prod-whitelist:contracts && whitelist_address
+#yarn deploy:prod-whitelist:contracts && whitelist_address
+yarn deploy:prod-whitelist:contracts
 
 yarn workspace client build
 
