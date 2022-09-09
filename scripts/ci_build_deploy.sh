@@ -16,7 +16,7 @@ function whitelist_address() {
 		else
                 	ADDRESS+=",${address}"
 		fi
-                if [ $i == 200 ]; then
+                if [ $i == 50 ]; then
 			yarn workspace eth hardhat:prod whitelist:register --address "$ADDRESS"
                         ADDRESS=""
                         i=0
