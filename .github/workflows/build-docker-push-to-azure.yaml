@@ -41,6 +41,7 @@ jobs:
             AL_SERVER_PORT=${{ secrets.AL_SERVER_PORT }}
             ROUND_START_TIMESTAMP=${{ secrets.ROUND_START_TIMESTAMP }}
             ROUND_END_TIMESTAMP=${{ secrets.ROUND_END_TIMESTAMP }}
+            AL_SERVER_URL="https://darkforest-leaderboard.altresearch.xyz"
 
       - name: "Extract static files"
         uses: shrink/actions-docker-extract@v1
