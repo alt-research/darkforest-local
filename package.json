@@ -54,6 +54,8 @@
     "start:client": "yarn workspace client start",
     "start:api": "yarn workspace eth start:api",
 
+    "configure": "node configure.js",
+
     "deploy:client": "netlify build && netlify deploy",
     "deploy:client:prod": "netlify build && netlify deploy --prod",
 
