@@ -70,6 +70,16 @@ rl.question('Please crypto mnemonics (Deployer account): ', (mnemonics) => {
                             if (err) return console.log(err);
                             console.log('client/.env created!!');
                         });
+
+                        fs.readFile("eth/darkforest.custom.toml.template", 'utf8', function (err,data) {
+                            if (err) {
+                              return console.log(err);
+                            }
+                            var result = data.replace(/GAME_END_TIME_PLACEHOLDER/g, dfEndTime);
+                            fs.writeFile("eth/darkforest.custom.toml", result, 'utf8', function (err) {
+                               if (err) return console.log(err);
+                            });
+                        });
                     });
                 });
             });
