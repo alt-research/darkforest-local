@@ -1,6 +1,5 @@
 const readline = require('readline');
 const fs = require('fs');
-let etherjs = require("ethers")
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -17,7 +16,7 @@ let explorerPrefix;
 rl.question('Please crypto mnemonics (Deployer account): ', (mnemonics) => {
     deploymentMnemonics = mnemonics;
 
-    rl.question('Please enter a Flash Layer endpoint: ', (endpoint) => {
+    rl.question('Please enter Flash Layer endpoint: ', (endpoint) => {
         if(!isValidURL(endpoint)){
             console.log("Invalid input, please enter a valid endpoint.");
             rl.close();
