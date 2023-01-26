@@ -75,7 +75,7 @@ rl.question('Please crypto mnemonics (Deployer account): ', (mnemonics) => {
                             if (err) {
                               return console.log(err);
                             }
-                            var result = data.replace(/GAME_END_TIME_PLACEHOLDER/g, dfEndTime);
+                            var result = data.replace(/GAME_END_TIME_PLACEHOLDER/g, dfEndTime.toISOString());
                             fs.writeFile("eth/darkforest.custom.toml", result, 'utf8', function (err) {
                                if (err) return console.log(err);
                             });
