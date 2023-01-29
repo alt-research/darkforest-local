@@ -48,7 +48,7 @@ rl.question('Please crypto mnemonics (Deployer account): ', (mnemonics) => {
                         process.exit(1);
                     }
 
-                    dfStartTime = time;
+                    dfStartTime = time.toISOString();
 
                     rl.question('Enter Dark Forest round end time (YYYY-MM-DD HH:mm:ss TZ): ', (endTime) => {
                         time = new Date(endTime)
@@ -57,7 +57,7 @@ rl.question('Please crypto mnemonics (Deployer account): ', (mnemonics) => {
                             rl.close();
                             process.exit(1);
                         }
-                        dfEndTime = time;
+                        dfEndTime = time.toISOString();
 
                         rl.close();
 
@@ -75,9 +75,10 @@ rl.question('Please crypto mnemonics (Deployer account): ', (mnemonics) => {
                             if (err) {
                               return console.log(err);
                             }
-                            var result = data.replace(/GAME_END_TIME_PLACEHOLDER/g, dfEndTime.toISOString());
+                            var result = data.replace(/GAME_END_TIME_PLACEHOLDER/g, dfEndTime);
                             fs.writeFile("eth/darkforest.custom.toml", result, 'utf8', function (err) {
                                if (err) return console.log(err);
+                               console.log('Game toml config updated!');
                             });
                         });
                     });
