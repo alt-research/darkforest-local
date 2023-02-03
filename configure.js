@@ -17,11 +17,6 @@ rl.question('Please crypto mnemonics (Deployer account): ', (mnemonics) => {
     deploymentMnemonics = mnemonics;
 
     rl.question('Please enter Flash Layer endpoint: ', (endpoint) => {
-        if(!isValidURL(endpoint)){
-            console.log("Invalid input, please enter a valid endpoint.");
-            rl.close();
-            process.exit(1);
-        }
         flashlayerEndpoint = endpoint;
         
         rl.question('Enter Flash Layer chain ID: ', (chainID) => {
@@ -33,11 +28,6 @@ rl.question('Please crypto mnemonics (Deployer account): ', (mnemonics) => {
             flashlayerChainID = chainID;
 
             rl.question('Enter explorer prefix eg. https://flashlayer-1-explorer.altlayer.io/address : ', (explorerPrefix) => {
-                if(!isValidURL(endpoint)){
-                    console.log("Invalid input, please enter a valid url.");
-                    rl.close();
-                    process.exit(1);
-                }
                 explorerPrefix = explorerPrefix;
 
                 rl.question('Enter Dark Forest round start time (YYYY-MM-DD HH:mm:ss TZ): ', (startTime) => {
